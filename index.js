@@ -13,9 +13,9 @@ bot.on('text', async (ctx) => {
    
    try {
       const translation = await translate(message, { from: "en", to: "uz" });
-      ctx.reply(translation.text);  // Access the translated text
+      ctx.reply(translation.text);  
    } catch (error) {
-      console.error(error);
+    //   console.error(error);
       ctx.reply('Xatolik yuz berdi tarjima qilishda.');
    }
 });
