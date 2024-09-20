@@ -3,7 +3,6 @@ const translate = require('translation-google');
 require("dotenv").config();
 
 const bot = new Telegraf(process.env.TOKEN);
-// let count = 0;
 
 bot.start((ctx) => {
    ctx.reply(`Salom ${ctx.from.first_name}. Men Ingliz tilidan O'zbek tiliga tarjima qilib beruvchi botman. So'zni kiriting!`);
@@ -23,4 +22,6 @@ bot.on('text', async (ctx) => {
    }
 });
 bot.launch();
-// console.log(count);
+
+process.once('SIGINT', () => bot.stop('SIGINT'));
+process.once('SIGTERM', () => bot.stop('SIGTERM'));
